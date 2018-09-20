@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped table-hover">
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td>{{total_amount}}</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            {% for item in report %}
+                <tr>
+                    <td>{{item["symbol"]}}</td>
+                    <td>{{item["name"]}}</td>
+                    <td>{{item["shares"]}}</td>
+                    <td>{{item["price"]}}</td>
+                    <td>{{item["value"]}}</td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="4">CASH</td>
+                <td>{{cash}}</td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+
+    </table>
+{% endblock %}
