@@ -1,0 +1,33 @@
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            {% for character in s2 %}
+                <th>{{character}}</th>
+            {% endfor %}
+        </tr>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>0</th>
+            {% for character in s2 %}
+                <th>{{loop.index0 + 1}}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for line in matrix %}
+            <tr>
+                <th>{% if loop.index0 != 0 %}
+                        {{s1[loop.index0 - 1]}}
+                    {% endif %}</th>
+                <th>{{loop.index0}}</th>
+                {% for item in line %}
+                    <td>{{item[0]}}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
